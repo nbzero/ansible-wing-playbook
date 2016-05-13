@@ -26,6 +26,6 @@ ansible-playbook -i inventories/host_preparation \
 # Put ssh password for target hosts
 
 # Run only update-packages tag with limited target hosts on group prod and db
-ansible-playbook -i group_vars/target_hosts \
+ansible-playbook -i inventories/host_preparation \
 --tag update-packages --limit prod:db host-preparation.yml
 ```
