@@ -1,0 +1,13 @@
+[production]
+prod-01 ansible_user=ubuntu host_name=prod-01 ansible_host=10.10.10.11 ansible_port=22
+prod-02 ansible_user=ubuntu host_name=prod-02 ansible_host=10.10.10.12 ansible_port=22
+
+[preproduction]
+pre-01 ansible_user=ubuntu host_name=pre-01 ansible_host=10.10.10.21 ansible_port=22
+
+[all:vars]
+# Uncomment this line if you want to use apt-cacher-ng
+#host_preparation_apt_cacher_ng=http://apt-cacher-ng.example.com:3142
+# You can get Thailand's NTP from here http://www.pool.ntp.org/zone/th
+host_preparation_ntp_server=ntp.ubuntu.com
+host_preparation_authorized_keys_path=group_vars/authorized_keys

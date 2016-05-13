@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: no
+  become: true
+  pre_tasks:
+    - name: Install Python 2 first
+      raw: apt-get update -qq && apt-get install -y python
+  roles:
+    - host_preparation
