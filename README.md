@@ -11,7 +11,7 @@ Pre-requisites
 Host preparation playbook
 ---------------------------------------------------------------------------
 
-- Prepare authorized_keys at ```group_vars/authorized_keys```
+- Prepare authorized_keys at ```files/authorized_keys```
 - See sample inventory file at ```inventories/host_preparation.example```
 
 ```bash
