@@ -1,0 +1,9 @@
+[production]
+prod-01 ansible_user=ubuntu ansible_host=10.10.10.11 ansible_port=22
+prod-02 ansible_user=ubuntu ansible_host=10.10.10.12 ansible_port=22
+
+[preproduction]
+pre-01 ansible_user=ubuntu ansible_host=10.10.10.21 ansible_port=22
+
+[all:vars]
+install_docker_vars_file=vars/install_docker.yml
