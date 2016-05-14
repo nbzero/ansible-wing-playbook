@@ -13,6 +13,7 @@ Host preparation playbook
 
 - Prepare authorized_keys at ```files/authorized_keys```
 - See sample inventory file at ```inventories/host_preparation.example```
+- More info and list of all variables at https://galaxy.ansible.com/winggundamth/host_preparation/
 
 ```bash
 # Install galaxy role
@@ -25,7 +26,8 @@ ansible-playbook -i inventories/host_preparation \
 --ask-pass --ask-become-pass host-preparation.yml
 # Put ssh password for target hosts
 
-# Run only update-packages tag with limited target hosts on group prod and db
+# Run only host-preparation-update-packages tag with limited target hosts
+# on group prod and db
 ansible-playbook -i inventories/host_preparation \
---tag update-packages --limit prod:db host-preparation.yml
+--tag host-preparation-update-packages --limit prod:db host-preparation.yml
 ```
