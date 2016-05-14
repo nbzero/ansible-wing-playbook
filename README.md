@@ -12,12 +12,13 @@ Host preparation playbook
 ---------------------------------------------------------------------------
 
 - Prepare authorized_keys at ```files/authorized_keys```
-- See sample inventory file at ```inventories/host_preparation.example```
-- More info and list of all variables at https://galaxy.ansible.com/winggundamth/host_preparation/
+- See sample variable file at ```vars/host_preparation.yml.example```. Copy and reconfigure to make your own variable file
+- See sample inventory file at ```inventories/host_preparation.example```. Copy and reconfigure to make your own inventory file especially ```host_preparation_vars_file``` variable that you have to change to your variable file
+- More info about this role at https://galaxy.ansible.com/winggundamth/host_preparation/
 
 ```bash
-# Install galaxy role
-ansible-galaxy install winggundamth.host_preparation
+# Install galaxy role. Use --force to force update to latest
+ansible-galaxy install --force winggundamth.host_preparation
 
 # Run playbook
 # To use --ask-pass and --ask-become-pass you may need to install sshpass
