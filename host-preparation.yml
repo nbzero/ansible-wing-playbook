@@ -3,7 +3,7 @@
   become: true
   pre_tasks:
     - name: Install Python 2 first
-      raw: apt-get update -qq && apt-get install -y python
+      raw: python --version || apt-get update && apt-get install -y python
   roles:
     - winggundamth.host_preparation
   vars_files:
