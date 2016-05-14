@@ -11,5 +11,5 @@ Pre-requisites
 Playbooks list
 ---------------------------------------------------------------------------
 
-[Host preparation](docs/host_preparation.md)
-[Install Docker](docs/install_docker.md)
+- [Host preparation](docs/host_preparation.md)
+- [Install Docker](docs/install_docker.md)
