@@ -1,9 +1,9 @@
 ---
-#install_docker_machine: false
-#install_docker_machine_version: 0.7.0
-#install_docker_machine_url: https://github.com/docker/machine/releases/download/v{{ install_docker_machine_version }}/docker-machine-Linux-x86_64
-#install_docker_machine_path: /usr/local/bin/docker-machine
-#install_docker_machine_checksum: md5:bf73bbfee97fad04d3ff20151b1847fa
+#docker_machine_install: false
+#docker_machine_install_version: 0.7.0
+#docker_machine_install_url: https://github.com/docker/machine/releases/download/v{{ docker_machine_install_version }}/docker-machine-{{ ansible_system }}-{{ ansible_architecture }}
+#docker_machine_install_path: /usr/local/bin/docker-machine
+#docker_machine_install_checksum: md5:bf73bbfee97fad04d3ff20151b1847fa
 
 #docker_machine_extra_parameters: --engine-registry-mirror https://registry-1.docker.io
 
