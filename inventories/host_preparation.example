@@ -1,3 +1,4 @@
+# YOU MUST HAVE ansible_port variable OR ELSE REBOOT TASK WON'T WORK
 [production]
 prod-01 ansible_user=ubuntu host_preparation_host_name=prod-01 ansible_host=10.10.10.11 ansible_port=22
 prod-02 ansible_user=ubuntu host_preparation_host_name=prod-02 ansible_host=10.10.10.12 ansible_port=22
