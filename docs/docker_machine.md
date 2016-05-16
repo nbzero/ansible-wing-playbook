@@ -14,5 +14,5 @@ ansible-playbook -i inventories/docker_machine manage-docker-machine.yml
 
 # You may need --ask-become-pass if you set install_docker_machine is true
 ansible-playbook -i inventories/docker_machine --ask-become-pass \
-manage-docker_machine.yml
+manage-docker-machine.yml
 ```
