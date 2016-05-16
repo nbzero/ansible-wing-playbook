@@ -12,10 +12,3 @@
 
 # Change this to true if you want to install docker-py
 #install_docker_py: false
-
-# Install Docker Machine on local machine. Support Ubuntu host only
-#install_docker_machine: false
-#install_docker_machine_version: 0.7.0
-#install_docker_machine_url: https://github.com/docker/machine/releases/download/{{ install_docker_machine_version }}/docker-machine-Linux-x86_64
-#install_docker_machine_path: /usr/local/bin/docker-machine
-#install_docker_machine_checksum: md5:bf73bbfee97fad04d3ff20151b1847fa
