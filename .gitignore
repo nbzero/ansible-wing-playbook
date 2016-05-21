@@ -1,2 +1,4 @@
+roles/*
+!roles/.REMOVEME
 group_vars/*
 *.retry
