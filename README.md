@@ -6,7 +6,7 @@ This is all my playbook with example configuration and commands.
 Pre-requisites
 ---------------------------------------------------------------------------
 
-- Ansible 2.0+
+- Ansible 2.0+ (Some roles maybe need 2.1. Please read README.md in each role again)
 
 How to Use
 ---------------------------------------------------------------------------
