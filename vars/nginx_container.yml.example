@@ -1,0 +1,23 @@
+---
+# Configure how to run nginx container
+#nginx_container_pull_new_docker_images: missing
+#nginx_container_image_name: winggundamth/nginx:xenial
+#nginx_container_name: nginx
+#nginx_container_hostname: nginx
+# Will change this to unless-stopped when Ansible 2.1 releases
+#nginx_container_restart_policy: always
+
+# Configure the path of docker-machine configuration
+#nginx_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#nginx_container_docker_cert_path: "{{ nginx_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#nginx_container_host_config_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx"
+#nginx_container_host_config_file_path: "{{ nginx_container_host_config_path }}/nginx.conf"
+#nginx_container_config_path: /etc/nginx
+#nginx_container_config_backup_path: /etc/nginx.bak
+#nginx_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ nginx_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ nginx_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"
