@@ -1,3 +1,2 @@
-roles/*
 group_vars/*
 *.retry
