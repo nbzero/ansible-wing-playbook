@@ -1,19 +1,29 @@
 ---
-# Configure how to run nginx container
+### Configure how to run nginx container ###
+## Change to always to always pull latest docker image
 #nginx_container_pull_new_docker_images: missing
 #nginx_container_image_name: winggundamth/nginx:xenial
 #nginx_container_name: nginx
 #nginx_container_hostname: nginx
-# Will change this to unless-stopped when Ansible 2.1 releases
-#nginx_container_restart_policy: always
+## Ansible 2.1 needed for policy unless-stopped
+#nginx_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#nginx_container_state: started
+## This is default export ports for nginx as normal webserver
+#nginx_container_exposed_ports:
+#  - "80:80"
+#  - "443:443"
 
-# Configure the path of docker-machine configuration
+# Configure path of docker-machine configuration
 #nginx_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# Configure path of nginx configuration
+#nginx_container_host_config_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx/config"
+#nginx_container_host_config_file_path: "{{ nginx_container_host_config_path }}/nginx.conf"
+#nginx_container_host_config_encrypt_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx/encrypt"
 
 # You shouldn't touch these configuration at all except you know what you are going to do
 #nginx_container_docker_cert_path: "{{ nginx_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
-#nginx_container_host_config_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx"
-#nginx_container_host_config_file_path: "{{ nginx_container_host_config_path }}/nginx.conf"
 #nginx_container_config_path: /etc/nginx
 #nginx_container_config_backup_path: /etc/nginx.bak
 #nginx_container_docker_machine_environment:

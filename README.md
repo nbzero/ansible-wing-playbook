@@ -46,3 +46,4 @@ Playbooks list
 - [Manage Docker Machine](docs/docker_machine.md)
 - [Manage nginx container](docs/nginx_container.md)
 - [Install Docker Compose](docs/docker_compose.md)
+- [Run apt-cacher-ng container](docs/apt_cacher_ng_container.md)
