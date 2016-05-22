@@ -2,6 +2,7 @@ Manage nginx container playbook
 ---------------------------------------------------------------------------
 
 - This role will use 2 roles configuration. If you already used [winggundamth.docker_machine](docker_machine.md) to prepare docker-machine so you can just config this role and run it. But if not, you need to prepare [winggundamth.docker_machine](docker_machine.md) configuration.
+- You have to create directory as ```nginx_container_host_config_path```. This will tell that the remote machine ```{{ inventory_hostname }}``` will run this role.
 - See sample nginx configuration file at ```files/host/host-01.example.com/nginx/*```. Copy and reconfigure to make your own nginx configuration files. The structure would be
   - ```files/host/{{ inventory_hostname }}/nginx/config/*``` for normal nginx configuration files and you must have at least ```nginx.conf``` file inside since it will be the first config file that nginx container will read. This will normally copy to ```/etc/nginx/``` directory.
   - ```files/host/{{ inventory_hostname }}/nginx/encrypt/*``` for all encrypt nginx configuration files such as ssl certification. This will encrypt with ```ansible-vault encrypt``` command and you have to put your vault file at ```.vault_pass``` at the root of this repository. There already has dummy file there. This will normally copy to ```/etc/nginx/``` directory.

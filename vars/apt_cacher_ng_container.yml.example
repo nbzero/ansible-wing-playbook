@@ -1,4 +1,7 @@
 ---
+# This is the directory that it will check before trigger the role
+apt_cacher_ng_container_host_config_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/apt-cacher-ng"
+
 ### Configure how to run apt-cacher-ng container ###
 ## Change to always to always pull latest docker image
 #apt_cacher_ng_container_pull_new_docker_images: missing
@@ -12,7 +15,7 @@
 ## You can change to something else like "172.17.0.1:3142:3142" to make it
 ## connect with nginx container only
 #apt_cacher_ng_container_exposed_ports:
-  - "3142:3142"
+#  - "3142:3142"
 
 # Configure path of docker-machine configuration
 #apt_cacher_ng_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
