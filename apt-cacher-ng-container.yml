@@ -1,0 +1,20 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  become: false
+  roles:
+    - role: winggundamth.docker_machine
+      docker_machine_manage_config: true
+  vars_files:
+    - "{{ docker_machine_vars_file }}"
+
+- name: Run apt-cacher-ng container
+  hosts: all
+  connection: local
+  gather_facts: no
+  serial: 1
+  roles:
+    - role: winggundamth.apt_cacher_ng_container
+  vars_files:
+    - "{{ apt_cacher_ng_container_vars_file }}"

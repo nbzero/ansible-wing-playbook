@@ -1,0 +1,26 @@
+---
+### Configure how to run apt-cacher-ng container ###
+## Change to always to always pull latest docker image
+#apt_cacher_ng_container_pull_new_docker_images: missing
+#apt_cacher_ng_container_image_name: winggundamth/apt-cacher-ng:xenial
+#apt_cacher_ng_container_name: apt-cacher-ng
+#apt_cacher_ng_container_hostname: apt-cacher-ng
+## Ansible 2.1 needed for policy unless-stopped
+#apt_cacher_ng_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#apt_cacher_ng_container_state: started
+## You can change to something else like "172.17.0.1:3142:3142" to make it
+## connect with nginx container only
+#apt_cacher_ng_container_exposed_ports:
+  - "3142:3142"
+
+# Configure path of docker-machine configuration
+#apt_cacher_ng_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#apt_cacher_ng_container_docker_cert_path: "{{ apt_cacher_ng_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#apt_cacher_ng_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ apt_cacher_ng_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ apt_cacher_ng_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"
