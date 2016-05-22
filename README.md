@@ -45,3 +45,4 @@ Playbooks list
 - [Install Docker](docs/install_docker.md)
 - [Manage Docker Machine](docs/docker_machine.md)
 - [Manage nginx container](docs/nginx_container.md)
+- [Install Docker Compose](docs/docker_compose.md)
