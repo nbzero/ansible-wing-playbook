@@ -1,6 +1,6 @@
 ---
 # This is the directory that it will check before trigger the role
-#apt_cacher_ng_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names }}/apt-cacher-ng"
+#apt_cacher_ng_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/apt-cacher-ng"
 
 ### Configure how to run apt-cacher-ng container ###
 ## Change to always to always pull latest docker image

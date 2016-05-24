@@ -18,7 +18,7 @@
 #nginx_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
 
 # Configure path of nginx configuration
-#nginx_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names }}/nginx"
+#nginx_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/nginx"
 #nginx_container_host_config_file_path: "{{ nginx_container_host_config_path }}/nginx.conf"
 
 # You shouldn't touch these configuration at all except you know what you are going to do
