@@ -1,7 +1,7 @@
 Host preparation playbook
 ---------------------------------------------------------------------------
 
-- Prepare authorized_keys at ```files/authorized_keys```
+- Role always looking for ```authorized_keys``` file at ```files/groups/{{ group_names }}/authorized_keys``` first. If not exists then it will look for global ```authorized_keys``` file at ```files/authorized_keys```
 - See sample variable file at ```vars/host_preparation.yml.example```. Copy and reconfigure to make your own variable file
 - See sample inventory file at ```inventories/host_preparation.example```. Copy and reconfigure to make your own inventory file especially ```host_preparation_vars_file``` variable that you have to change to your variable file
 - More info about this role at https://galaxy.ansible.com/winggundamth/host_preparation/

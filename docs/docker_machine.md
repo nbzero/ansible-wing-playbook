@@ -21,3 +21,5 @@ manage-docker-machine.yml
 ansible-playbook -i inventories/docker_machine \
 --extra-var docker_machine_manage_config=true manage-docker-machine.yml
 ```
+
+- For all certificate files that docker-machine generated in ```files/docker-machine/*``` directory. It is my practice that I won't commit those files into repository and keep it somewhere safe. I already put that directory in .gitignore.

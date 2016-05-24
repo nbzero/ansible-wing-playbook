@@ -18,9 +18,8 @@
 #nginx_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
 
 # Configure path of nginx configuration
-#nginx_container_host_config_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx/config"
+#nginx_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names }}/nginx"
 #nginx_container_host_config_file_path: "{{ nginx_container_host_config_path }}/nginx.conf"
-#nginx_container_host_config_encrypt_path: "{{ playbook_dir }}/files/host/{{ inventory_hostname }}/nginx/encrypt"
 
 # You shouldn't touch these configuration at all except you know what you are going to do
 #nginx_container_docker_cert_path: "{{ nginx_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
