@@ -13,22 +13,22 @@ server {
   ssl_certificate_key /etc/nginx/certs/host-01.example.com.key;
   ssl_certificate /etc/nginx/certs/host-01.example.com.crt;
 
-  ssl_ciphers 'AES256+EECDH:AES256+EDH:!aNULL';
-
+  # From https://cipherli.st/
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_session_cache shared:SSL:10m;
-
-  ssl_stapling on;
-  ssl_stapling_verify on;
-  resolver 8.8.4.4 8.8.8.8 valid=300s;
-  resolver_timeout 10s;
-
   ssl_prefer_server_ciphers on;
-  ssl_dhparam /etc/nginx/certs/dhparam.pem;
-
-  add_header Strict-Transport-Security max-age=63072000;
+  ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
+  ssl_ecdh_curve secp384r1; # Requires nginx >= 1.1.0
+  ssl_session_cache shared:SSL:10m;
+  ssl_session_tickets off; # Requires nginx >= 1.5.9
+  ssl_stapling on; # Requires nginx >= 1.3.7
+  ssl_stapling_verify on; # Requires nginx => 1.3.7
+  resolver 8.8.4.4 8.8.8.8 valid=300s;
+  resolver_timeout 5s;
+  add_header Strict-Transport-Security "max-age=63072000; includeSubdomains; preload";
   add_header X-Frame-Options DENY;
   add_header X-Content-Type-Options nosniff;
+
+  ssl_dhparam /etc/nginx/certs/dhparam.pem;
 
   chunked_transfer_encoding on;
 
