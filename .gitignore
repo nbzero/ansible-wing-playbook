@@ -5,3 +5,5 @@ group_vars/*
 files/groups/*/nginx/certs/*
 files/docker-machine/*
 !files/docker-machine/.REMOVEME
+.vault*
+vault*
