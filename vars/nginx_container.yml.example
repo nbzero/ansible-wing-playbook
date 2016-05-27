@@ -5,7 +5,6 @@
 #nginx_container_image_name: winggundamth/nginx:xenial
 #nginx_container_name: nginx
 #nginx_container_hostname: nginx
-## Ansible 2.1 needed for policy unless-stopped
 #nginx_container_restart_policy: unless-stopped
 ## Change to reloaded to destroy container and recreate again
 #nginx_container_state: started

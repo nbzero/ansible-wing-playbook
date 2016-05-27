@@ -8,7 +8,6 @@
 #apt_cacher_ng_container_image_name: winggundamth/apt-cacher-ng:xenial
 #apt_cacher_ng_container_name: apt-cacher-ng
 #apt_cacher_ng_container_hostname: apt-cacher-ng
-## Ansible 2.1 needed for policy unless-stopped
 #apt_cacher_ng_container_restart_policy: unless-stopped
 ## Change to reloaded to destroy container and recreate again
 #apt_cacher_ng_container_state: started
