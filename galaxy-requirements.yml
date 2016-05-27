@@ -1,0 +1,9 @@
+---
+- src: winggundamth.apt_cacher_ng_container
+- src: winggundamth.docker_compose
+- src: winggundamth.docker_machine
+#- src: winggundamth.elasticsearch_container
+- src: winggundamth.host_preparation
+- src: winggundamth.install_docker
+#- src: winggundamth.mongo_container
+- src: winggundamth.nginx_container
