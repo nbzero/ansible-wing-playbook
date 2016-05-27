@@ -1,0 +1,11 @@
+---
+- name: Run mongodb container
+  hosts: all
+  connection: local
+  gather_facts: no
+  serial: 1
+  roles:
+    - role: winggundamth.mongo_container
+  vars_files:
+    - "{{ docker_machine_vars_file }}"
+    - "{{ mongo_container_vars_file }}"

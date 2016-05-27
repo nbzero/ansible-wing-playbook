@@ -1,0 +1,37 @@
+---
+### Configure how to run elasticsearch container ###
+## Change to always to always pull latest docker image
+#elasticsearch_container_pull_new_docker_images: missing
+# Image from https://hub.docker.com/_/elasticsearch
+#elasticsearch_container_image_name: elasticsearch:2.3.3
+#elasticsearch_container_name: elasticsearch
+#elasticsearch_container_hostname: elasticsearch
+#elasticsearch_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#elasticsearch_container_state: started
+## This will create volume to sensitive directory
+#elasticsearch_container_volumes:
+# - /usr/share/elasticsearch/config
+# - /usr/share/elasticsearch/data
+## Change ElasticSearchCluster to your cluster name
+elasticsearch_container_cluster_name: ElasticSearchCluster
+## You can put your argument to start elasticsearch
+#elasticsearch_container_command: elasticsearch -Des.node.name='{{ elasticsearch_container_cluster_name }}'
+## Config this if you want to exposed elasticsearch container ports
+#elasticsearch_container_exposed_ports:
+#  - "9200:9200"
+#  - "9300:9300"
+
+# Configure path of elasticsearch configuration
+#elasticsearch_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/elasticsearch"
+
+# Configure path of docker-machine configuration
+#elasticsearch_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#elasticsearch_container_docker_cert_path: "{{ elasticsearch_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#elasticsearch_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ elasticsearch_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ elasticsearch_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"
