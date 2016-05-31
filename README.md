@@ -1,12 +1,26 @@
-Ansible Wing Playbook
+Infrastructure as a code with Ansible + Docker
 ===========================================================================
 
-This is all my playbook with example configuration and commands.
+This repository is the skeleton to do infrastructure as a code with Ansible + Docker. You will have
+- Ansible playbooks in all yml files on root repository
+- Sample inventory files for each service in ```inventories``` directory
+- Sample variable files with heavily comment for each service in ```vars``` directory
+- Sample configuration files for each service in ```files``` directory
+- Documents how to use each role and tutorial in ```docs``` directory
+- Roles that will separate into each Ansible Galaxy repository. You can see all the roles in ```galaxy-requirements.yml```
 
 Pre-requisites
 ---------------------------------------------------------------------------
 
-- Ansible 2.1
+- Docker 1.10 or up
+- Docker Machine 0.7.0 or up
+- Ansible 2.1 or up
+- Make sure that you can ssh to target machine
+
+Tutorial
+---------------------------------------------------------------------------
+
+- [Getting started](docs/tutorials/01_getting_started.md)
 
 How to Use
 ---------------------------------------------------------------------------
@@ -63,3 +77,8 @@ Playbooks list
 - [Manage Mongo container](docs/mongo_container.md)
 - [Manage ElasticSearch container](docs/elasticsearch_container.md)
 - [Manage Graylog container](docs/graylog_container.md)
+
+License
+-------
+
+The MIT License (MIT)
