@@ -1,8 +1,4 @@
 ---
-# This is conditional role variable. You should configure these vars via playbook only
-#docker_machine_create: false
-#docker_machine_manage_config: false
-
 # Docker Machine installation configuration
 #docker_machine_install_version: 0.7.0
 #docker_machine_install_url: https://github.com/docker/machine/releases/download/v{{ docker_machine_install_version }}/docker-machine-{{ ansible_system }}-{{ ansible_architecture }}
@@ -10,7 +6,7 @@
 #docker_machine_install_checksum: md5:bf73bbfee97fad04d3ff20151b1847fa
 
 # Extra parameter when do docker-machine create command
-#docker_machine_extra_parameters: --engine-registry-mirror https://registry-mirror.example.com
+#docker_machine_extra_parameters: --engine-storage-driver overlay --engine-registry-mirror https://registry-mirror.example.com
 
 # Storage path for docker-machine command
 #docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
