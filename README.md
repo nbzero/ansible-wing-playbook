@@ -60,3 +60,6 @@ Playbooks list
 - [Manage nginx container](docs/nginx_container.md)
 - [Install Docker Compose](docs/docker_compose.md)
 - [Run apt-cacher-ng container](docs/apt_cacher_ng_container.md)
+- [Manage Mongo container](docs/mongo_container.md)
+- [Manage ElasticSearch container](docs/elasticsearch_container.md)
+- [Manage Graylog container](docs/graylog_container.md)

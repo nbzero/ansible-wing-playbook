@@ -1,0 +1,42 @@
+---
+### Configure how to run graylog container ###
+## Change to always to always pull latest docker image
+#graylog_container_pull_new_docker_images: missing
+## Image from https://hub.docker.com/r/graylog2/server/
+#graylog_container_image_name: graylog2/server:2.0.1-2
+#graylog_container_name: graylog
+#graylog_container_hostname: graylog
+#graylog_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#graylog_container_state: started
+## Data Volume
+#graylog_container_volumes:
+#  - /usr/share/graylog/data
+## Link with mongo and elasticsearch container
+#graylog_container_links:
+#  - "{{ mongo_container_name }}:mongo"
+#  - "{{ elasticsearch_container_name }}:elasticsearch"
+## Expose REST API and Web Interface ports
+#graylog_container_exposed_ports:
+#  - "9000:9000"
+#  - "12900:12900"
+## You must config this. See all variables here https://github.com/Graylog2/graylog2-server/blob/master/misc/graylog.conf
+## Simply prefix the parameter name with GRAYLOG_ and put it all in upper case.
+graylog_container_environment_config:
+  GRAYLOG_PASSWORD_SECRET: somepasswordpepper
+  GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+  GRAYLOG_REST_TRANSPORT_URI: "http://{{ ansible_host }}:12900"
+
+# Configure path of mongo configuration
+#graylog_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/graylog"
+
+# Configure path of docker-machine configuration
+#graylog_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#graylog_container_docker_cert_path: "{{ graylog_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#graylog_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ graylog_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ graylog_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"
