@@ -21,6 +21,9 @@ elasticsearch_container_cluster_name: ElasticSearchCluster
 #elasticsearch_container_exposed_ports:
 #  - "9200:9200"
 #  - "9300:9300"
+## Change your ES_HEAP_SIZE to match with your environment
+elasticsearch_container_environment_config:
+  ES_HEAP_SIZE: 512m
 
 # Configure path of elasticsearch configuration
 #elasticsearch_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/elasticsearch"
