@@ -1,6 +1,6 @@
 roles/*
 !roles/.REMOVEME
-group_vars/*
+group_vars/*/vault*.yml
 *.retry
 files/groups/*/nginx/certs/*
 files/docker-machine/*
