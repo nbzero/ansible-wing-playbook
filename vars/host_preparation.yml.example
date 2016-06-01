@@ -9,7 +9,7 @@
 # You can get Thailand's NTP from here http://www.pool.ntp.org/zone/th
 host_preparation_ntp_server: ntp.ubuntu.com
 
-# Role always looking for authorized_keys file in files/groups/{{ group_names }}
+# Role always looking for authorized_keys file in files/groups/{{ group_names[-1] }}
 # first. If not exists then it will look for global authorized_keys file
 # Change to your global authorized_keys file path
 host_preparation_global_authorized_keys_path: "{{ playbook_dir }}/files/authorized_keys"

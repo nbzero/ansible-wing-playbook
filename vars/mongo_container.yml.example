@@ -14,7 +14,7 @@ mongo_container_state: started
 #  - "27017:27017"
 
 # Configure path of mongo configuration
-#mongo_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/mongo"
+#mongo_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[-1] }}/mongo"
 
 # Configure path of docker-machine configuration
 #mongo_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"

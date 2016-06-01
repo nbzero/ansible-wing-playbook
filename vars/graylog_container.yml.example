@@ -28,7 +28,7 @@ graylog_container_environment_config:
   GRAYLOG_REST_TRANSPORT_URI: "http://{{ ansible_host }}:12900"
 
 # Configure path of mongo configuration
-#graylog_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/graylog"
+#graylog_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[-1] }}/graylog"
 
 # Configure path of docker-machine configuration
 #graylog_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"

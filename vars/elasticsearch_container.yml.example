@@ -26,7 +26,7 @@ elasticsearch_container_environment_config:
   ES_HEAP_SIZE: 512m
 
 # Configure path of elasticsearch configuration
-#elasticsearch_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[0] }}/elasticsearch"
+#elasticsearch_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[-1] }}/elasticsearch"
 
 # Configure path of docker-machine configuration
 #elasticsearch_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
