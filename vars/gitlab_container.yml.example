@@ -1,0 +1,63 @@
+---
+### Configure how to run redis container ###
+## Change to always to always pull latest docker image
+#gitlab_container_pull_new_docker_images: missing
+## Image from https://hub.docker.com/r/sameersbn/gitlab
+#gitlab_container_image_name: sameersbn/gitlab:8.8.3
+#gitlab_container_name: gitlab
+#gitlab_container_hostname: gitlab
+#gitlab_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#gitlab_container_state: started
+## Link with postgresql and redis container
+#gitlab_container_links:
+#  - "{{ postgresql_container_name }}:postgresql"
+#  - "{{ redis_container_name }}:redisio"
+## You may need to change ssh port on host. Otherwise you have to change gitlab ssh port.
+#gitlab_container_published_ports:
+#  - "22:22"
+#  - "80:80"
+#  - "443:443"
+## You must config this. See all variables here https://hub.docker.com/r/sameersbn/gitlab/
+## For best practice, you should use ansible-vault to encrypt your password on another file and keep to yourself
+## Read more here http://docs.ansible.com/ansible/playbooks_best_practices.html#best-practices-for-variables-and-vaults
+gitlab_container_environment_config:
+  - TZ: Asia/Bangkok
+  - GITLAB_TIMEZONE: Bangkok
+  - GITLAB_SECRETS_DB_KEY_BASE: CHANGEME
+  - GITLAB_HOST: git.example.com
+  - GITLAB_PORT: 443
+  - GITLAB_HTTPS: true
+  - GITLAB_SSH_PORT: 22
+  - GITLAB_CREATE_GROUP: false
+  - GITLAB_USERNAME_CHANGE: false
+  - GITLAB_NOTIFY_ON_BROKEN_BUILDS: true
+  - GITLAB_NOTIFY_PUSHER: true
+  - GITLAB_EMAIL: git@example.com
+  - GITLAB_EMAIL_REPLY_TO: noreply@example.com
+  - GITLAB_INCOMING_EMAIL_ADDRESS: reply@example.com
+  - GITLAB_BACKUPS: daily
+  - GITLAB_BACKUP_TIME: 01:00
+  - SMTP_ENABLED: true
+  - SMTP_HOST: smtp.mandrillapp.com
+  - SMTP_PORT: 587
+  - SMTP_USER: user@example.com
+  - SMTP_PASS: CHANGEME
+  - SMTP_DOMAIN: example.com
+  - SMTP_AUTHENTICATION: login
+  - SMTP_STARTTLS: true
+  - SMTP_TLS: true
+
+# Configure path of redis configuration
+#gitlab_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[-1] }}/gitlab"
+
+# Configure path of docker-machine configuration
+#gitlab_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#gitlab_container_docker_cert_path: "{{ gitlab_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#gitlab_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ gitlab_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ gitlab_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"

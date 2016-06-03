@@ -3,8 +3,11 @@
 - src: winggundamth.docker_compose
 - src: winggundamth.docker_machine
 - src: winggundamth.elasticsearch_container
+- src: winggundamth.gitlab_container
 - src: winggundamth.graylog_container
 - src: winggundamth.host_preparation
 - src: winggundamth.install_docker
 - src: winggundamth.mongo_container
 - src: winggundamth.nginx_container
+- src: winggundamth.postgresql_container
+- src: winggundamth.redis_container

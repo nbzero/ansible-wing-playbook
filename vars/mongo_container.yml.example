@@ -8,7 +8,7 @@
 #mongo_container_hostname: mongo
 #mongo_container_restart_policy: unless-stopped
 ## Change to reloaded to destroy container and recreate again
-mongo_container_state: started
+#mongo_container_state: started
 ## Config this if you want to exposed mongo container ports
 #mongo_container_exposed_ports:
 #  - "27017:27017"

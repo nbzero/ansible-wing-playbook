@@ -1,0 +1,13 @@
+---
+- name: Run gitlab container
+  hosts: all
+  connection: local
+  gather_facts: no
+  serial: 1
+  roles:
+    - role: winggundamth.gitlab_container
+  vars_files:
+    - "{{ docker_machine_vars_file }}"
+    - "{{ postgresql_container_vars_file }}"
+    - "{{ redis_container_vars_file }}"
+    - "{{ gitlab_container_vars_file }}"

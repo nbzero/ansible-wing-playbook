@@ -77,6 +77,9 @@ Playbooks list
 - [Manage Mongo container](docs/mongo_container.md)
 - [Manage ElasticSearch container](docs/elasticsearch_container.md)
 - [Manage Graylog container](docs/graylog_container.md)
+- [Manage PostgreSQL container](docs/postgresql_container.md)
+- [Manage Redis container](docs/redis_container.md)
+- [Manage GitLab container](docs/gitlab_container.md)
 
 License
 -------

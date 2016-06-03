@@ -1,0 +1,41 @@
+---
+### Configure how to run postgresql container ###
+## Change to always to always pull latest docker image
+#postgresql_container_pull_new_docker_images: missing
+## Image from https://hub.docker.com/_/postgres
+#postgresql_container_image_name: postgres:9.5.3
+#postgresql_container_name: postgresql
+#postgresql_container_hostname: postgresql
+#postgresql_container_restart_policy: unless-stopped
+## Change to reloaded to destroy container and recreate again
+#postgresql_container_state: started
+## Config this if you want to exposed postgresql container ports
+#postgresql_container_exposed_ports:
+#  - "5432:5432"
+## Config username, password and database that you want to create
+postgresql_container_username: postgres
+postgresql_container_password: CHANGEME
+postgresql_container_database: postgres
+## In case of you want to enable on database eg. pg_trgm extension for GitLab
+#postgresql_container_extensions:
+#  - pg_trgm
+## You may want to add more environment variable
+## See variables list here https://hub.docker.com/_/postgres/
+#postgresql_container_environment_config:
+#  POSTGRES_USER: "{{ postgresql_container_username }}"
+#  POSTGRES_PASSWORD: "{{ postgresql_container_password }}"
+#  POSTGRES_DB: "{{ postgresql_container_database }}"
+
+# Configure path of postgresql configuration
+#postgresql_container_host_config_path: "{{ playbook_dir }}/files/groups/{{ group_names[-1] }}/postgresql"
+
+# Configure path of docker-machine configuration
+#postgresql_container_docker_machine_storage_path: "{{ playbook_dir }}/files/docker-machine"
+
+# You shouldn't touch these configuration at all except you know what you are going to do
+#postgresql_container_docker_cert_path: "{{ postgresql_container_docker_machine_storage_path }}/machines/{{ inventory_hostname }}"
+#postgresql_container_docker_machine_environment:
+#  DOCKER_TLS_VERIFY: 1
+#  DOCKER_HOST: "{{ postgresql_container_docker_host.stdout }}"
+#  DOCKER_CERT_PATH: "{{ postgresql_container_docker_cert_path }}"
+#  DOCKER_MACHINE_NAME: "{{ inventory_hostname }}"
