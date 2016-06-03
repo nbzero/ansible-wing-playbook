@@ -3,7 +3,7 @@
 ## Change to always to always pull latest docker image
 #graylog_container_pull_new_docker_images: missing
 ## Image from https://hub.docker.com/r/graylog2/server/
-#graylog_container_image_name: graylog2/server:2.0.1-2
+#graylog_container_image_name: graylog2/server:2.0.2-1
 #graylog_container_name: graylog
 #graylog_container_hostname: graylog
 #graylog_container_restart_policy: unless-stopped
@@ -16,14 +16,29 @@
 #graylog_container_links:
 #  - "{{ mongo_container_name }}:mongo"
 #  - "{{ elasticsearch_container_name }}:elasticsearch"
-## Expose REST API and Web Interface ports
-#graylog_container_exposed_ports:
+## Expose REST API, Web Interface and input ports
+## Need to use port on container to more than 1024 from permission
+#graylog_container_published_ports:
 #  - "9000:9000"
 #  - "12900:12900"
+#  - "12201:12201"
+#  - "12201:12201/udp"
+#  - "514:5140"
+#  - "514:5140/udp"
+## Must have another variable to tell container to exposed port that not in EXPOSE in Dockerfile
+## This required by Ansible and docker-py
+#graylog_container_exposed_ports:
+#  - "12201"
+#  - "12201/udp"
+#  - "5140"
+#  - "5140/udp"
 ## You must config this. See all variables here https://github.com/Graylog2/graylog2-server/blob/master/misc/graylog.conf
 ## Simply prefix the parameter name with GRAYLOG_ and put it all in upper case.
+## For best practice, you should use ansible-vault to encrypt your password on another file and keep to yourself
+## Read more here http://docs.ansible.com/ansible/playbooks_best_practices.html#best-practices-for-variables-and-vaults
 graylog_container_environment_config:
   GRAYLOG_PASSWORD_SECRET: somepasswordpepper
+  # From command echo -n yourpassword | shasum -a 256
   GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
   GRAYLOG_REST_TRANSPORT_URI: "http://{{ ansible_host }}:12900"
 
