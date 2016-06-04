@@ -1,0 +1,11 @@
+---
+- name: Run devpi container
+  hosts: all
+  connection: local
+  gather_facts: no
+  serial: 1
+  roles:
+    - role: winggundamth.devpi_container
+  vars_files:
+    - "{{ docker_machine_vars_file }}"
+    - "{{ devpi_container_vars_file }}"
