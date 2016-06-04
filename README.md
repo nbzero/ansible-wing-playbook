@@ -80,6 +80,7 @@ Playbooks list
 - [Manage PostgreSQL container](docs/postgresql_container.md)
 - [Manage Redis container](docs/redis_container.md)
 - [Manage GitLab container](docs/gitlab_container.md)
+- [Manage Docker Registry container](docs/docker_registry_container.md)
 
 License
 -------
