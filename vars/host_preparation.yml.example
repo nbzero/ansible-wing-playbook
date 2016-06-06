@@ -21,6 +21,9 @@ host_preparation_global_authorized_keys_path: "{{ playbook_dir }}/files/authoriz
 # These variables is default. Uncomment to change as you need
 #host_preparation_need_reboot: false
 #host_preparation_reboot_timeout: 600
+
+# Change this to true if you want to tuning your Ubuntu
+#host_preparation_is_tuning: false
 #host_preparation_base_packages:
 #  - htop
 #  - iotop
