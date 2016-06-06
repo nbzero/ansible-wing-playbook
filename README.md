@@ -70,6 +70,7 @@ Playbooks list
 
 - [Host preparation](docs/host_preparation.md)
 - [Install Docker](docs/install_docker.md)
+- [Install New Relic agent](docs/newrelic.md)
 - [Manage Docker Machine](docs/docker_machine.md)
 - [Manage nginx container](docs/nginx_container.md)
 - [Install Docker Compose](docs/docker_compose.md)

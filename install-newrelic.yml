@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  roles:
+    - winggundamth.newrelic
+  vars_files:
+    - "{{ newrelic_vars_file }}"
