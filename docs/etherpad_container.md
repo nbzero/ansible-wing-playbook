@@ -1,9 +1,8 @@
 Manage gitlab container playbook
 ---------------------------------------------------------------------------
 
-- This role will combine 3 roles configuration together.
-  - [winggundamth.postgresql_container](postgresql_container.md)
-  - [winggundamth.redis_container](redis_container.md)
+- This role will combine 2 roles configuration together.
+  - [winggundamth.mariadb_container](mariadb_container.md)
   - [winggundamth.gitlab_container](gitlab_container.md)
 - If you are not deploy on localhost. You need to use [winggundamth.docker_machine](docker_machine.md) to prepare target host with docker-machine first. And this role will use the same configuration to manage container on target host.
 - You have to create directory that normally at ```files/groups/{{ group_names[-1] }}/gitlab/``` as a trigger for remote machine group to run this role.

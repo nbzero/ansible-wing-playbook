@@ -4,5 +4,3 @@
   become: true
   roles:
     - winggundamth.newrelic
-  vars_files:
-    - "{{ newrelic_vars_file }}"

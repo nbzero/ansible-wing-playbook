@@ -1,7 +1,7 @@
 Manage nginx container playbook
 ---------------------------------------------------------------------------
 
-- This role will use 2 roles configuration. If you already used [winggundamth.docker_machine](docker_machine.md) to prepare docker-machine so you can just config this role and run it. But if not, you need to prepare [winggundamth.docker_machine](docker_machine.md) configuration.
+- If you are not deploy on localhost. You need to use [winggundamth.docker_machine](docker_machine.md) to prepare target host with docker-machine first. And this role will use the same configuration to manage container on target host.
 - You have to create directory that normally at ```files/groups/{{ group_names[-1] }}/nginx/``` as a trigger for remote machine group to run this role.
 - If you have ssl certificate files or any secret file. It is my practice to put it in ```files/groups/{{ group_names[-1] }}/nginx/certs/*``` and won't commit those files in to repository. I already put that directory in .gitignore.
 - See sample nginx configuration file at ```files/groups/host-01.example.com/nginx/*```. Copy and reconfigure to make your own nginx configuration files. You must have at least ```nginx.conf``` file inside since it will be the first config file that nginx container will read. This will normally copy to ```/etc/nginx/``` directory.

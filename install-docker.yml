@@ -3,5 +3,3 @@
   become: true
   roles:
     - winggundamth.install_docker
-  vars_files:
-    - "{{ install_docker_vars_file }}"

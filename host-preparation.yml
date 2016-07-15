@@ -7,5 +7,3 @@
       raw: python --version || apt-get update && apt-get install -y python
   roles:
     - winggundamth.host_preparation
-  vars_files:
-    - "{{ host_preparation_vars_file }}"

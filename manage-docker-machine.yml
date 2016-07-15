@@ -7,5 +7,3 @@
     - role: winggundamth.docker_machine
       docker_machine_create: true
       docker_machine_manage_config: true
-  vars_files:
-    - "{{ docker_machine_vars_file }}"

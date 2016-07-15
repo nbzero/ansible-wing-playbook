@@ -1,7 +1,7 @@
 Manage docker registry container playbook
 ---------------------------------------------------------------------------
 
-- This role will use 2 roles configuration. If you already used [winggundamth.docker_machine](docker_machine.md) to prepare docker-machine so you can just config this role and run it. But if not, you need to prepare [winggundamth.docker_machine](docker_machine.md) configuration.
+- If you are not deploy on localhost. You need to use [winggundamth.docker_machine](docker_machine.md) to prepare target host with docker-machine first. And this role will use the same configuration to manage container on target host.
 - You have to create directory that normally at ```files/groups/{{ group_names[-1] }}/docker-registry/``` as a trigger for remote machine group to run this role.
 - Put ```config.yml``` file in directory above. You can see syntax here https://github.com/docker/distribution/blob/master/docs/configuration.md or you can config this via environment variables that will be in vars file in next bullet
 - See sample variable file at ```vars/docker_registry_container.yml.example```. Copy and reconfigure to make your own variable file
