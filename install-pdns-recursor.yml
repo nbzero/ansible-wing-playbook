@@ -1,0 +1,5 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - winggundamth.pdns_recursor

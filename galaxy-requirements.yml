@@ -5,3 +5,5 @@
 - src: winggundamth.host_preparation
 - src: winggundamth.install_docker
 - src: winggundamth.newrelic
+- src: winggundamth.pdns
+- src: winggundamth.pdns-recursor
