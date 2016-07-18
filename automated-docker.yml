@@ -2,7 +2,10 @@
 - name: Run automated docker container role
   hosts: all
   connection: local
-  gather_facts: no
+  # TODO Until these has been fixed. gather_facts has to be yes
+  # https://github.com/ansible/ansible-modules-core/issues/4116
+  # https://github.com/ansible/ansible/issues/7367
+  gather_facts: yes
   serial: 1
   roles:
     - role: winggundamth.automated_docker
