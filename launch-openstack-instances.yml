@@ -1,0 +1,28 @@
+---
+- name: Launch OpenStack instance(s)
+  hosts: all
+  connection: local
+  gather_facts: no
+  roles:
+    - winggundamth.openstack_launch_instances
+
+- name: Configure instance(s)
+  hosts: launched_openstack_instances
+  gather_facts: yes
+  become: true
+  pre_tasks:
+    - name: Install Python 2 first
+      raw: python --version || apt-get update && apt-get install -y python
+  roles:
+    - winggundamth.host_preparation
+    - winggundamth.install_docker
+
+- name: Configure Docker Machine
+  hosts: launched_openstack_instances
+  connection: local
+  gather_facts: yes
+  become: false
+  roles:
+    - role: winggundamth.docker_machine
+      docker_machine_create: true
+      docker_machine_manage_config: true
