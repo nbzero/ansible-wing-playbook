@@ -4,7 +4,7 @@ Infrastructure as a code with Ansible + Docker
 This repository is the skeleton to do infrastructure as a code with Ansible + Docker. Assume that you already have understanding of Ansible and Docker you can continue with the following:
 
 - Ansible is use to run automated tasks from host preparation to service deployment.
-- Docker is use to contain services.
+- Docker is use to contain services which will get deployed by Ansible.
 - Combining two of above together created infrastructure as a code, which is a way to do and maintain infrastructure with codes that is easier to maintain and understand.
 
 
@@ -38,7 +38,8 @@ Picture incoming.
 FAQ
 ----------------------------------------------------------
 ###Variable priority
-According to [Variable Precedence: Where Should I Put A Variable?](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable). TL;DR 'The last listed variables win'. Order of variable priority would be:
+According to [Variable Precedence: Where Should I Put A Variable?](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable). TL;DR 'The last listed variables win'.
+Order of variable priority would be:
 
 - roles/*/default/main.yml
 - group_vars/all
