@@ -123,6 +123,8 @@ ansible-playbook -i inventories/target_hosts -e automated_docker_name=gitlab aut
 ```bash
 # See docker container on remote server
 docker ps
+# Access your GitLab
+HOST_IP:10080
 ```
 
 What just happened!?
