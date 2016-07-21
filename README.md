@@ -17,7 +17,7 @@ Requirements
 
 Let's get started
 ----------------------------------------------------------
-- [Getting Started: The start line](docs/tutorial/01_getting_started.md)
+- [Getting Started: The start line](docs/tutorials/01_getting_started.md)
 - [Inventories, Files, Variables]()
 
 Roles List
