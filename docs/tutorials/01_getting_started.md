@@ -86,8 +86,7 @@ It's time for Host Preparation
 ```bash
 # -i point to inventory file that we created on previous section.
 # -e is to add an environment to playbook. host_preparation_host_name is needed here.
-ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=gitlab
-host-preparation.yml
+ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=gitlab host-preparation.yml
 ```
 - Look at your command line go!
 
@@ -97,7 +96,7 @@ Install docker on remote machine
 
 - Run playbook
 ```bash
-ansible-playbook -i inventories/target_hosts install_docker.yml
+ansible-playbook -i inventories/target_hosts install-docker.yml
 ```
 - You can check at remote server after it's done to see if docker is already installed.
 
@@ -118,7 +117,7 @@ Let's create GitLab container
 - For now, know that automated_docker is one big role that we'll use to deploy every services, let's run the playbook with following command first
 ```bash
 # automated_docker_name is variable that define which service to be deploy.
-ansible-playbook -i inventories/target_hosts -e automated_docker_name=gitlab automated_docker.yml
+ansible-playbook -i inventories/target_hosts -e automated_docker_name=gitlab automated-docker.yml
 ```
 - And this is where magic happens. After the playbook finished running try checking docker container on your server, or even try to access GitLab that just got deployed!.
 ```bash
