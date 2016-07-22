@@ -14,8 +14,8 @@
     - name: Install Python 2 first
       raw: python --version || apt-get update && apt-get install -y python
   roles:
-    - winggundamth.host_preparation
-    - winggundamth.install_docker
+    - { role: winggundamth.host_preparation, when: ansible_uptime_seconds < 300 }
+    - { role: winggundamth.install_docker, when: ansible_uptime_seconds < 300 }
 
 - name: Configure Docker Machine
   hosts: launched_openstack_instances
@@ -26,3 +26,18 @@
     - role: winggundamth.docker_machine
       docker_machine_create: true
       docker_machine_manage_config: true
+
+- name: Deploy service
+  hosts: launched_openstack_instances
+  connection: local
+  gather_facts: yes
+  serial: 1
+  roles:
+    - role: winggundamth.automated_docker
+
+- name: Deploy Keepalived
+  hosts: launched_openstack_instances
+  gather_facts: no
+  become: true
+  roles:
+    - { role: winggundamth.keepalived, when: os_instance.count.end > 1 and automated_docker_name == 'haproxy' }
