@@ -1,5 +1,2 @@
-[localhost]
-localhost
-
-[preproduction-example:children]
+[preproduction-example]
 localhost

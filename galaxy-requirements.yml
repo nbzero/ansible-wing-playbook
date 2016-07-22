@@ -4,6 +4,7 @@
 - src: winggundamth.docker_machine
 - src: winggundamth.host_preparation
 - src: winggundamth.install_docker
+- src: winggundamth.keepalived
 - src: winggundamth.newrelic
 - src: winggundamth.openstack_launch_instances
 - src: winggundamth.pdns-ansible
