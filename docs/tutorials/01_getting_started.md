@@ -124,7 +124,7 @@ ansible-playbook -i inventories/target_hosts -e automated_docker_name=gitlab aut
 # See docker container on remote server
 docker ps
 # Access your GitLab
-HOST_IP:10080
+http://HOST_IP:10080
 ```
 
 What just happened!?
@@ -144,4 +144,6 @@ What's next?
 ---------------------------------------------------------------------------
 You now have a rough idea of how this infrastructure as a code works. Next is to dive deeper to take a look at how can you configure your deployment. For example, you already have nginx configuration files, how can you deploy nginx with this infrastructure as a code with your configuration files attached to it.
 
+We encourage you to take a look at our Ansible structure first, try to understand it, then process to next steps.
+[Ansible Structure](/README.md)
 [Inventories, Files, Variables]()
