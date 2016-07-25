@@ -29,11 +29,7 @@ Roles List
 
 Structure
 ==========================================================
-Playbook. <br>
-Roles. <br>
-Files. <br>
-Group_vars. <br>
-Picture incoming.
+![Structure](docs/pics/ansible-structure.png)
 
 FAQ
 ----------------------------------------------------------
