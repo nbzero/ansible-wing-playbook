@@ -20,16 +20,43 @@ Let's get started
 - [Getting Started: The start line](docs/tutorials/01_getting_started.md)
 - [Inventories, Files, Variables]()
 
-Roles List
+How does this Ansible work
 ----------------------------------------------------------
-- [Host Preparation.]()
-- [Install Docker.]()
-- [Manage docker machine.]()
-- [Automated Docker.]()
+### Playbooks and Roles
+Let's talk about roles first. Roles are what Ansible will call when specific playbook is run, which inside the role contain tasks to execute. One playbook will run one role with pre and post tasks.
+
+### Design
+This Ansible is designed to have four main roles to do four main tasks. Basically explained in four steps with
+
+- Prepare remote host to be ready for deployment.
+- Install docker on remote host (required for Ansible-Docker)
+- Setup docker machine on remote host (required for Ansible-Docker to be able to remotely manage docker on remote host)
+- Deploy Services on remote host with Ansible-Docker
+
+Four of which already transformed into playbooks, for in-depth information please navigate to each galaxy role's page.
+
+- [Host Preparation.](https://galaxy.ansible.com/winggundamth/host_preparation/)
+- [Install Docker.](https://galaxy.ansible.com/winggundamth/install_docker/)
+- [Manage docker machine.](https://galaxy.ansible.com/winggundamth/docker_machine/)
+- [Automated Docker.](https://galaxy.ansible.com/winggundamth/automated_docker/)
+
+### Usage
+Usage is simple like other Ansible playbook, just run a playbook you need with required variables
+```
+# Example of running host-preparation
+# -i define inventory path -e define a variable for playbook
+ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=service host-preparation.yml
+```
 
 Structure
 ==========================================================
 ![Structure](docs/pics/ansible-structure.png)
+
+Structure is set with 3 tiers:
+
+- **External tier:** Included Inventories, Files, and Variables. Playbook with read from this tier for target remote host(s), required files for service, and required variables.
+- **Playbook tier:** Each playbook will call a role after downloading it from Ansible Galaxy.
+- **Role tier:** Each ansible role will have tasks of their own which needed to perform to complete designated task.
 
 FAQ
 ----------------------------------------------------------
