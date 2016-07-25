@@ -9,3 +9,4 @@
 - src: winggundamth.openstack_launch_instances
 - src: winggundamth.pdns-ansible
 - src: winggundamth.pdns_recursor-ansible
+- src: winggundamth.replace_vault
