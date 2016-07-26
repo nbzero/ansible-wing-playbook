@@ -26,17 +26,6 @@ Configuration tier structure
     └── inventories                   # Inventories path
         └── [INVENTORY_FILE]          # Inventory file
 
-> Breaking down inventories
-
-```yml
-# See example in inventories example file.
-[GROUP_NAME]
-MACHINE_NAME ansible_user=SSH_USERNAME ansible_host=SSH_IP ansible_port=SSH_PORT
-```
-- **ansible_user** is a ssh user
-- **ansible_host** is a ip of remote server
-- **ansible_port** is a port that will ssh to. **_This is mandatory or reboot task won't work_**
-
 ### Files
 > Files are static files that will be copy to service while deploying.
 
