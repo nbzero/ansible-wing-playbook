@@ -1,6 +1,6 @@
 Main structure
 ==========================================================
-![Structure](docs/pics/ansible-structure.png)
+![Structure](/docs/pics/ansible-structure.png)
 
 Structure is set with 3 tiers:
 
@@ -12,10 +12,10 @@ Top-level structure
 ----------------------------------------------------------
     .
     ├── files                         # Static files to be copied to service while deploying
-    ├── group_vars
-    ├── inventories
-    ├── roles
-    └── [PLAYBOOK].yml
+    ├── group_vars                    # Variables to configure deployment
+    ├── inventories                   # Target hosts
+    ├── roles                         # Roles downloaded from Ansible Galaxy
+    └── [PLAYBOOK].yml                # Playbook files
 
 Configuration tier structure
 ----------------------------------------------------------
