@@ -43,7 +43,7 @@ MACHINE_NAME ansible_user=SSH_USERNAME ansible_host=SSH_IP ansible_port=SSH_PORT
     .
     ├── files                       # files path
         ├── groups
-            ├── [GROUP_NAME]        # Group name (Refer to inventory file)
+            └── [GROUP_NAME]        # Group name (Refer to inventory file)
                 ├── [FILES]         # Files to use
                 └── [FILES]
         └── docker-machine          # Appear after you've run manage-docker-machine.yml
@@ -56,7 +56,7 @@ MACHINE_NAME ansible_user=SSH_USERNAME ansible_host=SSH_IP ansible_port=SSH_PORT
     .
     ├── group_vars                  # Variables path
         ├── [GROUP_NAME]            # Variables group name (Refer to inventory file)
-            ├── [ROLE_NAME]         # Role name (Refer to 4 main roles)
+            └── [ROLE_NAME]         # Role name (Refer to 4 main roles)
                 ├── [FILES].yml     # Variables file
                 └── [FILES].yml
 
