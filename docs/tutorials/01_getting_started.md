@@ -53,11 +53,11 @@ ansible-galaxy install -f -r galaxy-requirements.yml
 ---------------------------------------------------------------------------
 > Basically inventory file is the list of your server(s) put in group(s), this file will tell Ansible where target servers are.
 
-- Prepare inventory file by copy `inventories/target_hosts.example` and make your own inventory file.
+- Prepare inventory file by copy `inventories/target_host.example` and make your own inventory file.
 ```bash
-# Notice that I copy it to target_hosts file and edit it.
-cp inventories/target_hosts.example inventories/target_hosts
-vi inventories/target_hosts
+# Notice that I copy it to target_host file and edit it.
+cp inventories/target_host.example inventories/target_host
+vi inventories/target_host
 ```
 - Edit inventory to point to your remote server.
 ```yml
@@ -86,9 +86,9 @@ vi files/authorized_keys
 ```bash
 # -i point to inventory file that we created on previous section.
 # -e is to add an environment to playbook. host_preparation_host_name is needed to set remote hostname.
-ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=nginx host-preparation.yml
+ansible-playbook -i inventories/target_host -e host_preparation_host_name=nginx host-preparation.yml
 ```
-- Look at your command line go!
+- Get some coffee, you gonna need it.
 
 3. Running install-docker playbook
 ---------------------------------------------------------------------------
@@ -96,7 +96,7 @@ ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=nginx
 
 - Run playbook
 ```bash
-ansible-playbook -i inventories/target_hosts install-docker.yml
+ansible-playbook -i inventories/target_host install-docker.yml
 ```
 - You can check at remote server after Ansible's done to see if docker is already installed.
 
@@ -106,7 +106,7 @@ ansible-playbook -i inventories/target_hosts install-docker.yml
 
 - Run playbook
 ```bash
-ansible-playbook -i inventories/target_hosts manage-docker-machine.yml
+ansible-playbook -i inventories/target_host manage-docker-machine.yml
 ```
 - After you successfully ran the playbook. You will see all docker-machine certificate files at ```files/docker-machine/*```. We will use this for next section.
 
@@ -117,7 +117,7 @@ ansible-playbook -i inventories/target_hosts manage-docker-machine.yml
 - For now, know that automated-docker is one big role that we'll use to deploy every services, let's run the playbook with following command first
 ```bash
 # automated_docker_name is variable that define which service to be deploy.
-ansible-playbook -i inventories/target_hosts -e automated_docker_name=nginx automated-docker.yml
+ansible-playbook -i inventories/target_host -e automated_docker_name=nginx automated-docker.yml
 ```
 - And this is where magic happens. After the playbook finished running try checking docker container on your server, or even try to access nginx that just got deployed!.
 ```bash
