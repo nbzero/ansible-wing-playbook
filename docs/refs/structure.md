@@ -4,7 +4,7 @@ Main structure
 
 Structure is set with 3 tiers:
 
-- **Configuration tier:** Included Inventories, Files, and Variables. Playbook with read from this tier for target remote host(s), required files for service, and required variables.
+- **Configuration tier:** Included Inventories, Files, and Variables. Playbook with read from this tier for target remote host(s), required files for service, and required variables. See [Inventories, Files, Variables](/docs/refs/configuration.md) for detailed information.
 - **Playbook tier:** Each playbook will run a role.
 - **Role tier:** Each ansible role will have tasks of their own which needed to perform to complete designated task.
 

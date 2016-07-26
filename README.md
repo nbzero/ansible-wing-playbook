@@ -24,10 +24,12 @@ Reference for tutorials
 - [How does this Ansible works](docs/refs/how_it_works.md)
 - [Ansible Structure](docs/refs/structure.md)
 - [Inventories, Files, Variables](docs/refs/configuration.md)
+- [Naming Convention]()
+- [Automated Docker]()
 
 FAQ
 ----------------------------------------------------------
-###Variable priority
+### Variable priority
 According to [Variable Precedence: Where Should I Put A Variable?](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable). TL;DR "The last listed variables win". Order of variable priority would be:
 
 - roles/\*/default/main.yml

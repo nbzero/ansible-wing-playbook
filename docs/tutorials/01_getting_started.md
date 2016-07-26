@@ -10,9 +10,9 @@ Many people are asking what is the difference between Ansible and Docker. Do we 
 
 This inspire me to develop this repository. Make a sample so people can see that infrastructure as a code is not that hard with help from Ansible and Docker. So let's get started
 
-What will we do? Deploying Nginx.
+What will we do? Deploy Nginx.
 ---------------------------------------------------------------------------
-You're going to learn infrastructure as a code by deploying Nginx from scratch!
+You're going to learn infrastructure as a code by deploying Nginx from scratch! This will help you to understand a lot better when you switch to theory mode.
 
 To visualize your tasks in simple steps:
 
@@ -23,7 +23,7 @@ To visualize your tasks in simple steps:
 
 Preparation
 ---------------------------------------------------------------------------
-> Please note that this tutorial is made with specific version of Docker, Ansible and Ubuntu OS. It could be different on other versions.
+> Please note that this tutorial is made with specific version of Docker, Ansible and Ubuntu OS. It can be different on other versions.
 
 - [Install Docker 1.11.2 on your machine.](https://docs.docker.com/engine/installation/)
 - [Install Docker Machine 0.7.0 on your machine.](https://docs.docker.com/machine/install-machine/)
@@ -88,7 +88,7 @@ vi files/authorized_keys
 # -e is to add an environment to playbook. host_preparation_host_name is needed to set remote hostname.
 ansible-playbook -i inventories/target_host -e host_preparation_host_name=nginx host-preparation.yml
 ```
-- Get some coffee, you gonna need it.
+- Get some coffee, you're gonna need it.
 
 3. Running install-docker playbook
 ---------------------------------------------------------------------------
