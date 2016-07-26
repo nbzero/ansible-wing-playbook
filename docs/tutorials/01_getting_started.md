@@ -18,7 +18,7 @@ To visualize your tasks in simple steps:
 
 - Create a completely new server for deployment.
 - Use Ansible to manage server to make it ready to deploy. For example, install packages dependencies, docker, etc.
-- Use Ansible to create Docker Machine Certificate for the server.
+- Use Ansible to create Docker Machine Certificate on the server for Ansible to use.
 - Use Ansible to deploy GitLab service via Docker.
 
 Preparation
@@ -144,8 +144,4 @@ What's next?
 ---------------------------------------------------------------------------
 You now have a rough idea of how this infrastructure as a code works. Next is to dive deeper to take a look at how can you configure your deployment. For example, you already have nginx configuration files, how can you deploy nginx with this infrastructure as a code with your configuration files attached to it.
 
-We encourage you to take a look at our Ansible structure first, try to understand it, then process to next steps.
-
-[Ansible Structure](/README.md#structure)
-
-[Inventories, Files, Variables]()
+But before that you can take a look at [How does this Ansible works](docs/refs/how_it_works.md) to have clear picture of what you've just done. After that you can proceed to next step.
