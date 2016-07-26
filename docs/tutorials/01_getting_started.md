@@ -10,20 +10,20 @@ Many people are asking what is the difference between Ansible and Docker. Do we 
 
 This inspire me to develop this repository. Make a sample so people can see that infrastructure as a code is not that hard with help from Ansible and Docker. So let's get started
 
-What will we do? Deploying GitLab.
+What will we do? Deploying Nginx.
 ---------------------------------------------------------------------------
-You're going to learn infrastructure as a code by deploying GitLab CE from scratch!
+You're going to learn infrastructure as a code by deploying Nginx from scratch!
 
 To visualize your tasks in simple steps:
 
 - Create a completely new server for deployment.
 - Use Ansible to manage server to make it ready to deploy. For example, install packages dependencies, docker, etc.
 - Use Ansible to create Docker Machine Certificate on the server for Ansible to use.
-- Use Ansible to deploy GitLab service via Docker.
+- Use Ansible to deploy Nginx service via Docker.
 
 Preparation
 ---------------------------------------------------------------------------
-*Please note that this tutorial is made with specific version of Docker, Ansible and Ubuntu OS. It could be different on other versions.*
+> Please note that this tutorial is made with specific version of Docker, Ansible and Ubuntu OS. It could be different on other versions.
 
 - [Install Docker 1.11.2 on your machine.](https://docs.docker.com/engine/installation/)
 - [Install Docker Machine 0.7.0 on your machine.](https://docs.docker.com/machine/install-machine/)
@@ -38,7 +38,7 @@ wget -O /ansible/lib/python2.7/site-packages/ansible/module_utils/docker_common.
 # Try running 'sudo find / | grep docker_container.py' to find your docker_container.py path.
 wget -O /ansible-dev/lib/python2.7/site-packages/ansible/modules/core/cloud/docker/docker_container.py https://raw.githubusercontent.com/ansible/ansible-modules-core/devel/cloud/docker/docker_container.py
 ```
-- Create a bare Ubuntu 14.04 LTS server for GitLab deployment. (With [digitalocean](https://www.digitalocean.com), etc.)
+- Create a bare Ubuntu 14.04 LTS server for Nginx deployment. (With [digitalocean](https://www.digitalocean.com), etc.)
 - Clone or fork this repository and install all dependencies roles on your machine.
 ```bash
 # Clone this or forked repository.
@@ -51,7 +51,7 @@ ansible-galaxy install -f -r galaxy-requirements.yml
 
 1. Prepare Ansible inventory and authorized_keys files
 ---------------------------------------------------------------------------
-*Basically inventory file is the list of your server(s) put in group(s), this file will tell Ansible where target servers are.*
+> Basically inventory file is the list of your server(s) put in group(s), this file will tell Ansible where target servers are.
 
 - Prepare inventory file by copy `inventories/target_hosts.example` and make your own inventory file.
 ```bash
@@ -69,7 +69,7 @@ MACHINE_NAME ansible_user=SSH_USERNAME ansible_host=SSH_IP ansible_port=SSH_PORT
   - **ansible_host** is a ip of remote server
   - **ansible_port** is a port that will ssh to. **_This is mandatory or reboot task won't work_**
 
-*authorized_keys file need to be prepared before running Ansible. Ansible will put this authorized_keys inside your server to configure ssh permission on your remote host.*
+> authorized_keys file need to be prepared before running Ansible. Ansible will put this authorized_keys inside your server to configure ssh permission on your remote host.
 
 - Prepare authorized_keys by adding your set of keys into `files\authorized_keys`
 ```bash
@@ -80,19 +80,19 @@ vi files/authorized_keys
 
 2. It's time for host-preparation playbook
 ---------------------------------------------------------------------------
-*Host Preparation is a playbook that call host_preparation role to tune your server to be ready for services deployment. [More Information](https://galaxy.ansible.com/winggundamth/host_preparation/).*
+> Host Preparation is a playbook that call host_preparation role to tune your server to be ready for services deployment. [More Information](https://galaxy.ansible.com/winggundamth/host_preparation/).
 
 - Run host-preparation.yml playbook.
 ```bash
 # -i point to inventory file that we created on previous section.
 # -e is to add an environment to playbook. host_preparation_host_name is needed to set remote hostname.
-ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=gitlab host-preparation.yml
+ansible-playbook -i inventories/target_hosts -e host_preparation_host_name=nginx host-preparation.yml
 ```
 - Look at your command line go!
 
 3. Running install-docker playbook
 ---------------------------------------------------------------------------
-*Install docker is a playbook that call install-docker role to install docker on your server. [More information](https://galaxy.ansible.com/winggundamth/install_docker/).*
+> Install docker is a playbook that call install-docker role to install docker on your server. [More information](https://galaxy.ansible.com/winggundamth/install_docker/).
 
 - Run playbook
 ```bash
@@ -102,7 +102,7 @@ ansible-playbook -i inventories/target_hosts install-docker.yml
 
 4. Prepare Docker Machine with manage-docker-machine playbook
 ---------------------------------------------------------------------------
-*Docker Machine is a playbook that call docker_machine role to create docker machine for controlling docker on remote server. [More information](https://galaxy.ansible.com/winggundamth/docker_machine/)*
+> Docker Machine is a playbook that call docker_machine role to create docker machine for controlling docker on remote server. [More information](https://galaxy.ansible.com/winggundamth/docker_machine/)
 
 - Run playbook
 ```bash
@@ -110,38 +110,40 @@ ansible-playbook -i inventories/target_hosts manage-docker-machine.yml
 ```
 - After you successfully ran the playbook. You will see all docker-machine certificate files at ```files/docker-machine/*```. We will use this for next section.
 
-5. Let's create GitLab container
+5. Let's deploy Nginx
 ---------------------------------------------------------------------------
-*All steps before is just preparation for real deployment. We will use automated-docker playbook here to deploy GitLab. [More information](https://galaxy.ansible.com/winggundamth/automated_docker/).*
+> All steps before is just preparation for real deployment. We will use automated-docker playbook here to deploy Nginx. [More information](https://galaxy.ansible.com/winggundamth/automated_docker/).
 
 - For now, know that automated-docker is one big role that we'll use to deploy every services, let's run the playbook with following command first
 ```bash
 # automated_docker_name is variable that define which service to be deploy.
-ansible-playbook -i inventories/target_hosts -e automated_docker_name=gitlab automated-docker.yml
+ansible-playbook -i inventories/target_hosts -e automated_docker_name=nginx automated-docker.yml
 ```
-- And this is where magic happens. After the playbook finished running try checking docker container on your server, or even try to access GitLab that just got deployed!.
+- And this is where magic happens. After the playbook finished running try checking docker container on your server, or even try to access nginx that just got deployed!.
 ```bash
 # See docker container on remote server
 docker ps
-# Access your GitLab
-http://HOST_IP:10080
+# Access your nginx
+http://HOST_IP
 ```
 
 What just happened!?
 ---------------------------------------------------------------------------
-Yes. I know you've just following boring steps and suddenly, GitLab of your own just got deployed.
+Yes. I know you've just following boring steps and suddenly, Nginx of your own just got deployed.
 
 Let's remember our tasks a bit and let's try changing them into playbook name here.
 
 - Create a completely new server for deployment. **_(No playbook)_**
 - Use Ansible to manage server to make it ready to deploy. For example, install packages dependencies, docker, etc. **_(host-preparation.yml, install-docker.yml)_**
 - Use Ansible to create Docker Machine Certificate for the server. **_(manage-docker-machine.yml)_**
-- Use Ansible to deploy GitLab service via Docker. **_(automated_docker.yml)_**
+- Use Ansible to deploy Nginx service via Docker. **_(automated_docker.yml)_**
 
-As you can see, server preparation and deployment process have been taken care of by Ansible Playbooks combined with Docker, in other word, Ansible and Docker take care of everything for us when we got a bare server running. How easy is it?
+As you can see, server preparation and deployment process have been taken care of by Ansible combined with Docker, in other word, Ansible and Docker take care of everything for us when we got a bare server running and wanting a service to be deployed. How easy is it?
 
 What's next?
 ---------------------------------------------------------------------------
 You now have a rough idea of how this infrastructure as a code works. Next is to dive deeper to take a look at how can you configure your deployment. For example, you already have nginx configuration files, how can you deploy nginx with this infrastructure as a code with your configuration files attached to it.
 
-But before that you can take a look at [How does this Ansible works](docs/refs/how_it_works.md) to have clear picture of what you've just done. After that you can proceed to next step.
+But before that you can take a look at steps above with [How does this Ansible works](/docs/refs/how_it_works.md) as a reference to have clear picture of what you've just done. After that you can proceed to next step.
+
+[Messing with files and variables](/docs/tutorials/02.md)
