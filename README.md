@@ -1,7 +1,7 @@
 
-Infrastructure as a code with Ansible + Docker
+Infrastructure as a code with Ansible + Docker + Openstack
 ==========================================================
-This repository is the skeleton to do infrastructure as a code with Ansible + Docker. Assume that you already have basic understanding of Ansible and Docker, you can take a look at main concept:
+This repository is the skeleton to do infrastructure as a code with Ansible + Docker + Openstack. Assume that you already have basic understanding of Ansible and Docker, you can take a look at main concept:
 
 - Ansible is use to run automated tasks from host preparation to service deployment.
 - Docker is use to contain services which will get deployed by Ansible.
@@ -12,6 +12,10 @@ Requirements
 - Docker 1.10 or above.
 - Docker machine 0.7.0 or above.
 - Ansible 2.1 (with patch) or above.
+- Python Library (On host that run Ansible)
+  - docker-py
+  - shade
+  - dnspython
 - Can SSH to remote host.
 
 Let's get started with tutorials
